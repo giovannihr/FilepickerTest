@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Filepicker test</title>
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+
+<body>
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/filepicker-js/filepicker.min.js"></script>
+    <script src="bower_components/angular-filepicker/dist/angular_filepicker.js"></script>
+    <!-- endbower -->
+    <div class="container" ng-controller="filepickerController as vm">
+        <div class="col-sm-12 text-center">
+            <h2>Try Uploading an Image!</h2>
+        </div>
+        <div class="col-sm-12">
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!--  THIS IS WHERE FILEPICKER IS USED   -->
+            <!-- type="filepicker-dragdrop" means you can select and upload multiple files at the same time -->
+            <!-- data-fp-multiple='true' means uploading multiple files is allowed -->
+            <!-- name="whatever" is irrelevant, you can change to any name you want -->
+            <!-- data-fp-services="" lets you choose the source/place of origin/where the image is uploaded from....full list of options are 
+BOX
+COMPUTER
+DROPBOX
+EVERNOTE
+FACEBOOK
+GMAIL
+IMAGE_SEARCH
+FLICKR
+FTP
+GITHUB
+GOOGLE_DRIVE
+SKYDRIVE
+PICASA
+URL
+WEBCAM
+INSTAGRAM
+VIDEO
+ALFRESCO
+CUSTOMSOURCE (for S3 Source)
+CLOUDDRIVE
+IMGUR
+CLOUDAPP
+CONVERT
+
+                 -->
+            <!-- ng-model="" is going to save the url where the image was uploaded and is going to be hosted, this url is going to be saved in the database, and you can see it in line 67 for visual purposes -->
+            <input type="filepicker-dragdrop" data-fp-multiple="true" name="whatever" data-fp-services="computer,facebook,webcam,box" ng-model="vm.photoUrl" />
+            <!---->
+            <!---->
+            <!-- for custom themes check   https://www.filepicker.com/docs/file-ingestion/widgets/customize?v=v2 -->
+            <!---->
+            <br>
+            <!--                            Here:........ you can see the url in which the image is going to be saves/hosted                         -->
+            <p>This is the hosted filepicker url: {{vm.photoUrl}}</p>
+        </div>
+    </div>
+    <!-- inject:js -->
+    <script src="app/app.js"></script>
+    <script src="app/filepicker.controller.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>
